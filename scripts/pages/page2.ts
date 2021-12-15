@@ -6,18 +6,21 @@ import PageTitleLayout from 'components/PageTitleLayout';
 import componentContextPatch from '@smartface/contx/lib/smartface/componentContextPatch';
 import Color from '@smartface/native/ui/color';
 import System from '@smartface/native/device/system';
+import Router from '@smartface/router/lib/router/Router';
+import Button from '@smartface/native/ui/button';
 
 export default class Page2 extends Page2Design {
-  router: any;
-  routeData: any;
+  router: Router;
+  routeData: { [key: string]: any };
   parentController: any;
-  constructor() {
+  constructor({ ...args }) {
     super();
+    Object.assign(this, args);
     // Overrides super.onShow method
     this.onShow = onShow.bind(this, this.onShow.bind(this));
     // Overrides super.onLoad method
     this.onLoad = onLoad.bind(this, this.onLoad.bind(this));
-    touch.addPressEvent(this.btnSayHello, () => {
+    this.btnSayHello.on(Button.Events.Press, () => {
       alert('Hello World!');
     });
   }
@@ -58,7 +61,7 @@ function onLoad(this: Page2, superOnLoad: () => void) {
           this.router.goBack();
         },
         image: Image.createFromFile('images://arrow_back.png'),
-      }),
+      })
     );
   } else {
     headerBar = this.parentController.headerBar;

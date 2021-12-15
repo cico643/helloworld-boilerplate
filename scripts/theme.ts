@@ -11,7 +11,8 @@ const themeSources = themeConfig.themes.map((name) => ({
   rawStyles: require(`./generated/themes/${name}`),
   isDefault: currentTheme === name,
 }));
-Application['theme'] = createThemeContextBound(themeSources);
+const themeBound = createThemeContextBound(themeSources);
+Application['theme'] = themeBound;
 type ThemeListener = (themeName: string) => void;
 
 const themeListeners = new WeakMap<{}, ThemeListener>();
@@ -29,6 +30,9 @@ const ThemeService = {
         themeListenerKeys.splice(deletionIndex, 1);
       }
     };
+  },
+  getCombinedStyle(className: string) {
+    return themeBound()(className);
   },
   changeTheme(name: string) {
     Application['theme']()({
