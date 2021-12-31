@@ -29,7 +29,9 @@ export default class Page1 extends Page1Design {
     // PROCESS TO DO.
     setTimeout(() => {
       this.lblInside.text = `lblinside that will overflow into 6 lineslblinside that will overflow into 6 lineslblinside that will overflow into 6 lineslblinside that will overflow into 6 lines`;
-      this.lblInside.getParent().applyLayout(); // APPLYLAYOUT ALSO SADLY NOT DOING THE WORK FOR US
+      if (System.OS === System.OSType.ANDROID) {
+        this.lblInside.getParent().applyLayout(); // APPLYLAYOUT ALSO SADLY NOT DOING THE WORK FOR US
+      }
     }, 2000);
 
     this.headerBar.titleLayout.applyLayout();
