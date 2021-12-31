@@ -2,6 +2,8 @@ import Page1Design from 'generated/pages/page1';
 import PageTitleLayout from 'components/PageTitleLayout';
 import System from '@smartface/native/device/system';
 import Label from '@smartface/native/ui/label';
+import FlexLayout from '@smartface/native/ui/flexlayout';
+import Color from '@smartface/native/ui/color';
 
 export default class Page1 extends Page1Design {
   constructor(private router: any) {
@@ -20,14 +22,15 @@ export default class Page1 extends Page1Design {
     console.log('onShow Page1');
     // this.headerBar.titleLayout.applyLayout();
 
-    this.lblInside.text = 'lblinside that will overflow into 2 lines';
-    // HERE WE CALCULATE THE HEIGHT OF THE LABEL MANUALLY AND
-    // DISPATCH THAT HEIGHT TO THE PARENT WRAPPER
-    this.flInfoWrapper.dispatch({
-      type: 'updateUserStyle',
-      userStyle: { height: 50 },
-    });
-    this.flInfoWrapper.applyLayout();
+    // HERE WHEN WE CHANGE THE TEXT DYNAMICALLY ON THE RUNTIME
+    // flWrapper DOESN'T CALCULATE ITS LAYOUT SIZES AUTOMATICALLY
+    // AND CAUSES US TO MANUALLY CALCULATE LABEL'S NEW HEIGHT
+    // AND DISPATCH THAT TO WRAPPER FLEX WHICH IS A VERY PAINFUL
+    // PROCESS TO DO.
+    setTimeout(() => {
+      this.lblInside.text = `lblinside that will overflow into 6 lineslblinside that will overflow into 6 lineslblinside that will overflow into 6 lineslblinside that will overflow into 6 lines`;
+      this.lblInside.getParent().applyLayout(); // APPLYLAYOUT ALSO SADLY NOT DOING THE WORK FOR US
+    }, 2000);
 
     this.headerBar.titleLayout.applyLayout();
   }

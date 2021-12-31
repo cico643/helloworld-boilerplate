@@ -3,7 +3,7 @@
 		{
 			"className": ".sf-page",
 			"id": "e891b86d",
-			"initialized": false,
+			"initialized": true,
 			"props": {
 				"children": [
 					"42b807d1",
@@ -135,7 +135,7 @@
 			},
 			"type": "FlexLayout",
 			"userProps": {
-				"height": 105,
+				"height": 250,
 				"paddingBottom": 15,
 				"paddingLeft": 15,
 				"paddingRight": 15,
@@ -149,8 +149,7 @@
 			"id": "1556-5359-3692-dc38",
 			"props": {
 				"children": [
-					"8dab-c22e-3ec4-2de0",
-					"a5cc-cac7-84d4-ecd8"
+					"800d-743f-6284-6ecd"
 				],
 				"name": "flWrapper",
 				"parent": "13c2-e24c-f4d9-dd01",
@@ -158,9 +157,7 @@
 			},
 			"type": "FlexLayout",
 			"userProps": {
-				"flexProps": {
-					"flexGrow": 1
-				},
+				"backgroundColor": "rgba( 208, 2, 27, 1 )",
 				"height": null,
 				"marginBottom": null,
 				"marginRight": 75,
@@ -170,69 +167,23 @@
 			}
 		},
 		{
-			"className": ".sf-flexLayout",
-			"id": "8dab-c22e-3ec4-2de0",
-			"props": {
-				"children": [
-					"7a7d-9b59-8432-8d99"
-				],
-				"name": "flInfoWrapper",
-				"parent": "1556-5359-3692-dc38",
-				"usePageVariable": true
-			},
-			"type": "FlexLayout",
-			"userProps": {
-				"height": 25,
-				"marginBottom": null,
-				"marginTop": null,
-				"testId": "Fiagu8fsn",
-				"usePageVariable": true
-			}
-		},
-		{
 			"className": ".sf-label",
-			"id": "7a7d-9b59-8432-8d99",
+			"id": "800d-743f-6284-6ecd",
 			"props": {
 				"children": [],
 				"name": "lblInside",
-				"parent": "8dab-c22e-3ec4-2de0",
-				"text": "lblInside",
-				"usePageVariable": true
-			},
-			"type": "Label",
-			"userProps": {
-				"flexProps": {
-					"flexGrow": 1
-				},
-				"height": 25,
-				"marginBottom": null,
-				"marginTop": null,
-				"maxLines": 2,
-				"testId": "ASIdS94F6",
-				"text": "lblInside",
-				"usePageVariable": true
-			}
-		},
-		{
-			"className": ".sf-label",
-			"id": "a5cc-cac7-84d4-ecd8",
-			"props": {
-				"children": [],
-				"name": "lblInfoBottom",
 				"parent": "1556-5359-3692-dc38",
-				"text": "label2",
+				"text": "lblinside that will overflow into 2 lines",
 				"usePageVariable": true
 			},
 			"type": "Label",
 			"userProps": {
-				"flexProps": {
-					"flexGrow": 1
-				},
-				"height": null,
 				"marginBottom": null,
 				"marginTop": null,
-				"testId": "wGEn7Cr4N",
-				"text": "label2",
+				"maxLines": 0,
+				"testId": "kzrrvOaii",
+				"text": "lblinside that will overflow into 2 lines",
+				"textColor": "rgba( 65, 117, 5, 1 )",
 				"usePageVariable": true
 			}
 		}
